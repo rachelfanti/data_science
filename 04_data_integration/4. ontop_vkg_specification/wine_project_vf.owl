@@ -1,0 +1,818 @@
+@prefix : <http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obda: <https://w3id.org/obda/vocabulary#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30> .
+
+<http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#IsOrganizedBy
+:IsOrganizedBy rdf:type owl:ObjectProperty ;
+               rdfs:domain :Events ;
+               rdfs:range :Actor .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#hasCertification
+:hasCertification rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Wine ;
+                  rdfs:range :Certification .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#hasDescription
+:hasDescription rdf:type owl:ObjectProperty ;
+                rdfs:domain :Wine ;
+                rdfs:range :WineDescription .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#hasEventAddress
+:hasEventAddress rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Events ;
+                 rdfs:range :Address .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#hasGeolocalization
+:hasGeolocalization rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Address ;
+                    rdfs:range :Geolocalization .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#hasGrape
+:hasGrape rdf:type owl:ObjectProperty ;
+          rdfs:domain :WineGrapeComposition ;
+          rdfs:range :GrapeVariety .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#hasGrapeComposition
+:hasGrapeComposition rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Wine ;
+                     rdfs:range :WineGrapeComposition .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#hasMainAddress
+:hasMainAddress rdf:type owl:ObjectProperty ;
+                rdfs:domain :Actor ;
+                rdfs:range :Address .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#hasMunicipality
+:hasMunicipality rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Address ;
+                 rdfs:range :Municipality .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#hasOrganolepticDescription
+:hasOrganolepticDescription rdf:type owl:ObjectProperty ;
+                            rdfs:domain :WineDescription ;
+                            rdfs:range :WineOrganolepticDescription .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#hasProductionAddress
+:hasProductionAddress rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Wine ;
+                      rdfs:range :Address .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#hasRelatedEvents
+:hasRelatedEvents rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Wine ;
+                  rdfs:range :Events .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#hasTastingAddress
+:hasTastingAddress rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Wine ;
+                   rdfs:range :Address .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#hasType
+:hasType rdf:type owl:ObjectProperty ;
+         rdfs:domain :Wine ;
+         rdfs:range :WineType .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#isDistributedBy
+:isDistributedBy rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Wine ;
+                 rdfs:range :WholesaleDistributor .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#isMemberOfConsortium
+:isMemberOfConsortium rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Producer ;
+                      rdfs:range :Consortium .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#isProducedBy
+:isProducedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :Wine ;
+              rdfs:range :Producer .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#isSoldBy
+:isSoldBy rdf:type owl:ObjectProperty ;
+          rdfs:domain :Wine ;
+          rdfs:range :Retailer .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#isTransformedBy
+:isTransformedBy rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Wine ;
+                 rdfs:range :ProductsTransformation .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#aComplement
+:aComplement rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Address ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#aNumber
+:aNumber rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Address ;
+         rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#aStreet
+:aStreet rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Address ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#aZipCode
+:aZipCode rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Address ;
+          rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#acName
+:acName rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Actor ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#acPhoneNumber
+:acPhoneNumber rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Actor ;
+               rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#acRole
+:acRole rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Actor ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#acURL
+:acURL rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Actor ;
+       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#cExtendedCode
+:cExtendedCode rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Certification ;
+               rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#cName
+:cName rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Certification ;
+       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#cType
+:cType rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Certification ;
+       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#ctContactForProducers
+:ctContactForProducers rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Consortium ;
+                       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#ctHeadOfTheGarrison
+:ctHeadOfTheGarrison rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Consortium ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#eEndDate
+:eEndDate rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Events ;
+          rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#eEndTime
+:eEndTime rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Events ;
+          rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#eName
+:eName rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Events ;
+       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#eStartDate
+:eStartDate rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Events ;
+            rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#eStartTime
+:eStartTime rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Events ;
+            rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#gLatitude
+:gLatitude rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Geolocalization ;
+           rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#gLongitude
+:gLongitude rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Geolocalization ;
+            rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#gvName
+:gvName rdf:type owl:DatatypeProperty ;
+        rdfs:domain :GrapeVariety ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#gvSeason
+:gvSeason rdf:type owl:DatatypeProperty ;
+          rdfs:domain :GrapeVariety ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#gvTypicalPeriod
+:gvTypicalPeriod rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :GrapeVariety ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#mCountry
+:mCountry rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Municipality ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#mLauCode
+:mLauCode rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Municipality ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#mLauNameNational
+:mLauNameNational rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Municipality ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#mNUTS3Code
+:mNUTS3Code rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Municipality ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#mNUTSLevel1
+:mNUTSLevel1 rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Municipality ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#mNUTSLevel2
+:mNUTSLevel2 rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Municipality ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#mNUTSLevel3
+:mNUTSLevel3 rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Municipality ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#mzipCode
+:mzipCode rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Municipality ;
+          rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#pProductionManager
+:pProductionManager rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Producer ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wImage
+:wImage rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Wine ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wName
+:wName rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Wine ;
+       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wOfficialNumericalCode
+:wOfficialNumericalCode rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Wine ;
+                        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wSource
+:wSource rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Wine ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wTraditionalProvinceOfOrigin
+:wTraditionalProvinceOfOrigin rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :Wine ;
+                              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wTraditionalRegionOfOrigin
+:wTraditionalRegionOfOrigin rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :Wine ;
+                            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wWineCode
+:wWineCode rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Wine ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wdAlcoholContent
+:wdAlcoholContent rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :WineDescription ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wdColour
+:wdColour rdf:type owl:DatatypeProperty ;
+          rdfs:domain :WineDescription ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wdDescription
+:wdDescription rdf:type owl:DatatypeProperty ;
+               rdfs:domain :WineDescription ;
+               rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wdSugar
+:wdSugar rdf:type owl:DatatypeProperty ;
+         rdfs:domain :WineDescription ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wgcGrapeId
+:wgcGrapeId rdf:type owl:DatatypeProperty ;
+            rdfs:domain :WineGrapeComposition ;
+            rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wgcPercentageOfGrape
+:wgcPercentageOfGrape rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :WineGrapeComposition ;
+                      rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wgcWineId
+:wgcWineId rdf:type owl:DatatypeProperty ;
+           rdfs:domain :WineGrapeComposition ;
+           rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wodBody
+:wodBody rdf:type owl:DatatypeProperty ;
+         rdfs:domain :WineOrganolepticDescription ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wodColourDetailed
+:wodColourDetailed rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :WineOrganolepticDescription ;
+                   rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wodFlavor
+:wodFlavor rdf:type owl:DatatypeProperty ;
+           rdfs:domain :WineOrganolepticDescription ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wodOrganolepticDescription
+:wodOrganolepticDescription rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :WineOrganolepticDescription ;
+                            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wodTaste
+:wodTaste rdf:type owl:DatatypeProperty ;
+          rdfs:domain :WineOrganolepticDescription ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wtCategory
+:wtCategory rdf:type owl:DatatypeProperty ;
+            rdfs:domain :WineType ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#wtName
+:wtName rdf:type owl:DatatypeProperty ;
+        rdfs:domain :WineType ;
+        rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#Actor
+:Actor rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty [ owl:inverseOf :IsOrganizedBy
+                                        ] ;
+                         owl:someValuesFrom owl:Thing
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :acName ;
+                         owl:someValuesFrom rdfs:Literal
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :acRole ;
+                         owl:someValuesFrom rdfs:Literal
+                       ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#Address
+:Address rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGeolocalization ;
+                           owl:someValuesFrom owl:Thing
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasMunicipality ;
+                           owl:someValuesFrom owl:Thing
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty [ owl:inverseOf :hasEventAddress
+                                          ] ;
+                           owl:someValuesFrom owl:Thing
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :aStreet ;
+                           owl:someValuesFrom rdfs:Literal
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :aZipCode ;
+                           owl:someValuesFrom rdfs:Literal
+                         ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#Certification
+:Certification rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty [ owl:inverseOf :hasCertification
+                                                ] ;
+                                 owl:someValuesFrom owl:Thing
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :cExtendedCode ;
+                                 owl:someValuesFrom rdfs:Literal
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :cName ;
+                                 owl:someValuesFrom rdfs:Literal
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :cType ;
+                                 owl:someValuesFrom rdfs:Literal
+                               ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#Consortium
+:Consortium rdf:type owl:Class ;
+            rdfs:subClassOf :Actor ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty [ owl:inverseOf :isMemberOfConsortium
+                                             ] ;
+                              owl:someValuesFrom owl:Thing
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ctContactForProducers ;
+                              owl:someValuesFrom rdfs:Literal
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ctHeadOfTheGarrison ;
+                              owl:someValuesFrom rdfs:Literal
+                            ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#Events
+:Events rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :IsOrganizedBy ;
+                          owl:someValuesFrom owl:Thing
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasEventAddress ;
+                          owl:someValuesFrom owl:Thing
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty [ owl:inverseOf :hasRelatedEvents
+                                         ] ;
+                          owl:someValuesFrom owl:Thing
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :eName ;
+                          owl:someValuesFrom rdfs:Literal
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :eStartDate ;
+                          owl:someValuesFrom rdfs:Literal
+                        ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#Geolocalization
+:Geolocalization rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty [ owl:inverseOf :hasGeolocalization
+                                                  ] ;
+                                   owl:someValuesFrom owl:Thing
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :gLatitude ;
+                                   owl:someValuesFrom rdfs:Literal
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :gLongitude ;
+                                   owl:someValuesFrom rdfs:Literal
+                                 ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#GrapeVariety
+:GrapeVariety rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty [ owl:inverseOf :hasGrape
+                                               ] ;
+                                owl:someValuesFrom owl:Thing
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :gvName ;
+                                owl:someValuesFrom rdfs:Literal
+                              ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#Municipality
+:Municipality rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty [ owl:inverseOf :hasMunicipality
+                                               ] ;
+                                owl:someValuesFrom owl:Thing
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :mCountry ;
+                                owl:someValuesFrom rdfs:Literal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :mLauCode ;
+                                owl:someValuesFrom rdfs:Literal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :mLauNameNational ;
+                                owl:someValuesFrom rdfs:Literal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :mNUTS3Code ;
+                                owl:someValuesFrom rdfs:Literal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :mNUTSLevel1 ;
+                                owl:someValuesFrom rdfs:Literal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :mNUTSLevel2 ;
+                                owl:someValuesFrom rdfs:Literal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :mNUTSLevel3 ;
+                                owl:someValuesFrom rdfs:Literal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :mzipCode ;
+                                owl:someValuesFrom rdfs:Literal
+                              ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#Producer
+:Producer rdf:type owl:Class ;
+          rdfs:subClassOf :Actor ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty [ owl:inverseOf :isProducedBy
+                                           ] ;
+                            owl:someValuesFrom owl:Thing
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :pProductionManager ;
+                            owl:someValuesFrom rdfs:Literal
+                          ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#ProductsTransformation
+:ProductsTransformation rdf:type owl:Class ;
+                        rdfs:subClassOf :Actor ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty [ owl:inverseOf :isTransformedBy
+                                                         ] ;
+                                          owl:someValuesFrom owl:Thing
+                                        ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#Retailer
+:Retailer rdf:type owl:Class ;
+          rdfs:subClassOf :Actor ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty [ owl:inverseOf :isSoldBy
+                                           ] ;
+                            owl:someValuesFrom owl:Thing
+                          ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#WholesaleDistributor
+:WholesaleDistributor rdf:type owl:Class ;
+                      rdfs:subClassOf :Actor ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty [ owl:inverseOf :isDistributedBy
+                                                       ] ;
+                                        owl:someValuesFrom owl:Thing
+                                      ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#Wine
+:Wine rdf:type owl:Class ;
+      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasCertification ;
+                        owl:someValuesFrom owl:Thing
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasDescription ;
+                        owl:someValuesFrom owl:Thing
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasGrapeComposition ;
+                        owl:someValuesFrom owl:Thing
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasProductionAddress ;
+                        owl:someValuesFrom owl:Thing
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasType ;
+                        owl:someValuesFrom owl:Thing
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :isProducedBy ;
+                        owl:someValuesFrom owl:Thing
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :wName ;
+                        owl:someValuesFrom rdfs:Literal
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :wOfficialNumericalCode ;
+                        owl:someValuesFrom rdfs:Literal
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :wWineCode ;
+                        owl:someValuesFrom rdfs:Literal
+                      ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#WineDescription
+:WineDescription rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty [ owl:inverseOf :hasDescription
+                                                  ] ;
+                                   owl:someValuesFrom owl:Thing
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :wdColour ;
+                                   owl:someValuesFrom rdfs:Literal
+                                 ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#WineGrapeComposition
+:WineGrapeComposition rdf:type owl:Class ;
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasGrape ;
+                                        owl:someValuesFrom owl:Thing
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty [ owl:inverseOf :hasGrapeComposition
+                                                       ] ;
+                                        owl:someValuesFrom owl:Thing
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :wgcGrapeId ;
+                                        owl:someValuesFrom rdfs:Literal
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :wgcWineId ;
+                                        owl:someValuesFrom rdfs:Literal
+                                      ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#WineOrganolepticDescription
+:WineOrganolepticDescription rdf:type owl:Class ;
+                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                               owl:onProperty [ owl:inverseOf :hasOrganolepticDescription
+                                                              ] ;
+                                               owl:someValuesFrom owl:Thing
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :wodBody ;
+                                               owl:someValuesFrom rdfs:Literal
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :wodColourDetailed ;
+                                               owl:someValuesFrom rdfs:Literal
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :wodFlavor ;
+                                               owl:someValuesFrom rdfs:Literal
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :wodOrganolepticDescription ;
+                                               owl:someValuesFrom rdfs:Literal
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :wodTaste ;
+                                               owl:someValuesFrom rdfs:Literal
+                                             ] .
+
+
+###  http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#WineType
+:WineType rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty [ owl:inverseOf :hasType
+                                           ] ;
+                            owl:someValuesFrom owl:Thing
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :wtCategory ;
+                            owl:someValuesFrom rdfs:Literal
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :wtName ;
+                            owl:someValuesFrom rdfs:Literal
+                          ] .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Actor
+                :Address
+                :Certification
+                :Events
+                :Geolocalization
+                :GrapeVariety
+                :Municipality
+                :Wine
+                :WineDescription
+                :WineGrapeComposition
+                :WineOrganolepticDescription
+                :WineType
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

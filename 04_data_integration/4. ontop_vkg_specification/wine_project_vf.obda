@@ -1,0 +1,111 @@
+[PrefixDeclaration]
+:		http://www.semanticweb.org/rachel/ontologies/2022/0/untitled-ontology-30#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xml:		http://www.w3.org/XML/1998/namespace
+xsd:		http://www.w3.org/2001/XMLSchema#
+obda:		https://w3id.org/obda/vocabulary#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[MappingDeclaration] @collection [[
+mappingId	MAPID-wine
+target		:wine/wine/{id} a :Wine ; :wWineCode {wine_code}^^xsd:string ; :wName {name}^^xsd:string ; :wSource {external_source}^^xsd:string ; :hasDescription :wine/wine/{id} . 
+source		select id, wine_code, name, external_source, id_producer, id_wine_type
+			from wine
+
+mappingId	MAPID-description
+target		:wine/wine/{w_id} a :WineDescription ; :wdColour {colour}^^xsd:string ; :wdAlcoholContent {alcohol_content}^^xsd:string ; :hasOrganolepticDescription :wine/wine/{w_id} . 
+source		select w.id as w_id, w.id as wod_id, c.colour as colour, w.alcohol_content as alcohol_content
+			from wine w
+			left join colour c on w.id_colour = c.id
+
+mappingId	MAPID-organoleptic_description
+target		:wine/wine/{id} a :WineOrganolepticDescription ; :wodOrganolepticDescription {organoleptic_description}^^xsd:string . 
+source		select id, organoleptic_description
+			from wine
+
+mappingId	MAPID-wine_type
+target		:wine/wine_type/{id} a :WineType ; :wtName {wine_type}^^xsd:string . 
+source		select id, wine_type
+			from wine_type
+
+mappingId	MAPID-certification
+target		:wine/certification/{id} a :Certification ; :cName {code}^^xsd:string ; :cExtendedCode {name}^^xsd:string . 
+source		select id, code, name
+			from certification
+
+mappingId	MAPID-has_certification
+target		:wine/wine/{w_id} :hasCertification :wine/certification/{c_id} . 
+source		select w.id as w_id, c.id as c_id
+			from wine w, certification c, wine_certification wc
+			where w.id = wc.id_wine and c.id = wc.id_certification
+
+mappingId	MAPID-grape_variety
+target		:wine/grape_variety/{id} a :GrapeVariety ; :gvName {grape_variety}^^xsd:string . 
+source		select id, grape_variety
+			from grape_variety
+
+mappingId	MAPID-has_grape_composition
+target		:wine/wine/{w_id} :hasGrapeComposition :wine/wine_grape_composition/{wgc_id} . 
+source		select w.id as w_id, wgc.id as wgc_id
+			from wine w, wine_grape_composition wgc
+			where w.id = wgc.id_wine
+
+mappingId	MAPID-actor
+target		:wine/producer/{id} a :Actor ; :acRole {role}^^xsd:string ; :acName {producer}^^xsd:string ; :acPhoneNumber {phone_number}^^xsd:string ; :acURL {url}^^xsd:string ; :hasMainAddress :wine/producer/{id} . 
+source		select id, 'Producer' as role, producer, phone_number, url
+			from producer
+
+mappingId	MAPID-address
+target		:wine/producer/{id} a :Address ; :aStreet {street}^^xsd:string ; :aNumber {number}^^xsd:integer ; :aComplement {complement}^^xsd:string . 
+source		select id, street, number, complement
+			from producer
+
+mappingId	MAPID-geolocalization
+target		:wine/geolocalization/{g_id} a :Geolocalization ; :gLatitude {latitude}^^xsd:decimal ; :gLongitude {longitude}^^xsd:decimal . 
+source		select id as g_id, latitude, longitude
+			from geolocalization
+
+mappingId	MAPID-has_geolocalization
+target		:wine/producer/{a_id} :hasGeolocalization :wine/geolocalization/{g_id} . 
+source		select a.id as a_id, g.id as g_id
+			from producer a, geolocalization g
+			where  a.id_geolocalization = g.id
+
+mappingId	MAPID-is_produced_by
+target		:wine/wine/{w_id} :isProducedBy :wine/producer/{p_id} . 
+source		SELECT w.id as w_id, p.id as p_id
+			FROM wine w, producer p
+			WHERE w.id_producer = p.id
+
+mappingId	MAPID-has_type
+target		:wine/wine/{w_id} :hasType :wine/wine_type/{wt_id} . 
+source		select w.id as w_id, wt.id as wt_id
+			from wine w, wine_type wt
+			where w.id_wine_type = wt.id
+
+mappingId	MAPID-municipality
+target		:wine/lau/{lau_code} a :Municipality ; :mLauNameNational {lau_name_national}^^xsd:string ; :mCountry {country}^^xsd:string ; :mNUTSLevel1 {nuts1}^^xsd:string ; :mNUTSLevel2 {nuts2}^^xsd:string ; :mNUTSLevel3 {nuts3}^^xsd:string ; :mNUTS3Code {nuts3_code}^^xsd:string . 
+source		select l.lau_code as lau_code, l.lau_name_national as lau_name_national, c.country as country,
+			n1.nuts1 as nuts1, n2.nuts2 as nuts2, n3.nuts3 as nuts3, n3.nuts3_code as nuts3_code
+			from lau l, nuts1 n1, nuts2 n2, nuts3 n3, nuts_country c
+			where c.nuts_country_code = n1.nuts_country_code and n1.nuts1_code = n2.nuts1_code and n2.nuts2_code = n3.nuts2_code and n3.nuts3_code = l.nuts3_code
+
+mappingId	MAPID-has_municipality
+target		:wine/producer/{a_id} :hasMunicipality :wine/lau/{lau_code} . 
+source		select a.id as a_id, l.lau_code as lau_code
+			from producer a, lau l
+			where a.lau_code = l.lau_code
+
+mappingId	MAPID-wine_grape_composition
+target		:wine/wine_grape_composition/{id} a :WineGrapeComposition ; :wgcPercentageOfGrape {percentage_of_grape}^^xsd:decimal ; :wgcGrapeId {id_grape_variety}^^xsd:integer ; :wgcWineId {id_wine}^^xsd:integer . 
+source		select id, id_wine, id_grape_variety, percentage_of_grape
+			from wine_grape_composition
+
+mappingId	MAPID-has_grape
+target		:wine/wine_grape_composition/{wgc_id} :hasGrape :wine/grape_variety/{gv_id} . 
+source		select wgc.id as wgc_id, gv.id as gv_id
+			from wine_grape_composition wgc, grape_variety gv
+			where wgc.id_grape_variety = gv.id
+]]
+
